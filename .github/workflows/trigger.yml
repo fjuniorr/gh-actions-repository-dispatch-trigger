@@ -18,7 +18,7 @@ jobs:
               repo: 'gh-actions-repository-dispatch',
               event_type: 'my-event',
               client_payload: {
-                message: 'hello world!'
+                message: 'hello world!',
                 ref: context.ref,
                 sha: context.sha
               }
