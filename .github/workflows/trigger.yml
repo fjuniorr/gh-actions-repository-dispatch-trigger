@@ -1,0 +1,26 @@
+name: Dispatch event
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.createDispatchEvent({
+              owner: 'fjuniorr',
+              repo: 'gh-actions-repository-dispatch',
+              event_type: 'my-event',
+              client_payload: {
+                message: 'hello world!'
+                ref: context.ref,
+                sha: context.sha
+              }
+            });
+          github-token: ${{ secrets.GH_TOKEN }}
