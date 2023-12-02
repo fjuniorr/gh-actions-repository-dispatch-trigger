@@ -16,9 +16,8 @@ jobs:
             github.rest.repos.createDispatchEvent({
               owner: 'fjuniorr',
               repo: 'gh-actions-repository-dispatch',
-              event_type: 'my-event',
+              event_type: 'flowmapper-release',
               client_payload: {
-                message: 'hello world!',
                 ref: context.ref,
                 sha: context.sha
               }
